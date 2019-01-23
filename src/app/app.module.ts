@@ -11,6 +11,7 @@ import { BoldDirective } from './bold.directive';
 import { GithubPipe } from './github.pipe';
 import { GithubFormComponent } from './github-form/github-form.component';
 import { UserComponent } from './user/user.component';
+import { RepositoryComponent } from './repository/repository.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { UserComponent } from './user/user.component';
     BoldDirective,
     GithubPipe,
     GithubFormComponent,
-    UserComponent
+    UserComponent,
+    RepositoryComponent
   ],
   imports: [
     BrowserModule,
