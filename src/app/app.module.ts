@@ -10,6 +10,7 @@ import { GithubComponent } from './github/github.component';
 import { BoldDirective } from './bold.directive';
 import { GithubPipe } from './github.pipe';
 import { GithubFormComponent } from './github-form/github-form.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { GithubFormComponent } from './github-form/github-form.component';
     GithubComponent,
     BoldDirective,
     GithubPipe,
-    GithubFormComponent
+    GithubFormComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
