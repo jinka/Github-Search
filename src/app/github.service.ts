@@ -9,10 +9,10 @@ import {environment} from '../environments/environment';
 export class GithubService {
   username:"jinka"
   user:User;
-  apiUrlUsers:string='https://api.github.com/users/';
-  apiUrlRepos:string='https://api.github.com/users/repos';
-  tokenUsers:string='?f9316b65766fb257d920d126e68754f05eeb85ea'
-   tokenRepos:string="4d2dbf7b8f928da5d3ba907ee30d777e6fec8a87"
+  apiUrlUsers:string
+  // apiUrlRepos:string='https://api.github.com/users/repos';
+  tokenUsers:string
+  //  tokenRepos:string="4d2dbf7b8f928da5d3ba907ee30d777e6fec8a87"
 
   constructor(private http: HttpClient) { 
     this.user = new User (0,"","",0,0,0,"")
