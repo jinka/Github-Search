@@ -1,13 +1,21 @@
 export class User {
 
 constructor(
+    public login:string,
     public id:number, 
+    public avatar_url:string,
     public name:string, 
-    public picture:string, 
-    public followers:number, 
-    public following:number, 
-    public repositories:number, 
-    public creationDate:string){}
+    public company:string,
+    public blog:string,
+    public location:string,
+    public followers:number,
+    public following:number,
+    public gists_url:number,
+    public created_at:string,
+    public public_repos:number, 
+    public public_gists:number,
+    public creationDate:string,
+    public updated_at:string){}
 }
 
 // Api out fields

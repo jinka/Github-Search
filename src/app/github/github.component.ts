@@ -10,7 +10,7 @@ import {User} from '../user';
   providers:[GithubService]
 })
 export class GithubComponent implements OnInit {
-  userName=""
+userName=""
 user:User;
 show=false
 repos=[]
@@ -26,8 +26,6 @@ DisplayUser(){
   ngOnInit() {
     this.githubService.search("jinka");
     this.user=this.githubService.user;
-    // this.githubService.search("jinka");
-    // this.repos=this.githubService.repos;
   }
 
 }

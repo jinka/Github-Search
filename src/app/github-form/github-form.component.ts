@@ -20,9 +20,9 @@ export class GithubFormComponent implements OnInit {
   constructor(private githubService:GithubService) { }
 
  DisplayUser(){
-   this.show=true
-   this.githubService.search(this.userName)
-   this.user=this.githubService.user
+  //  this.show=false
+  //  this.githubService.search(this.userName)
+  //  this.user=this.githubService.user
  }
 
 
