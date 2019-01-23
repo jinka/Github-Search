@@ -2,37 +2,41 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientJsonpModule} from '@angular/common/http';
 import { _appIdRandomProviderFactory } from '@angular/core/src/application_tokens';
 import { User } from './user';
-
+import {environment} from '../environments/environment';
 
 @Injectable({providedIn: 'root'})
 
 export class GithubService {
   username:"jinka"
   user:User;
-  apiUrl:string;
-  apiRoot:string = 'https://api.github.com/users/';
-  results:Object[];
-  loading:boolean;
-  token:'?f9316b65766fb257d920d126e68754f05eeb85ea'
+  apiUrlUsers:string='https://api.github.com/users/';
+  apiUrlRepos:string='https://api.github.com/users/repos';
+  tokenUsers:string='?f9316b65766fb257d920d126e68754f05eeb85ea'
+   tokenRepos:string="4d2dbf7b8f928da5d3ba907ee30d777e6fec8a87"
 
   constructor(private http: HttpClient) { 
-    this.user = new User (0,'',0,0,0)
- }
+    this.user = new User (0,"","",0,0,0,"")
+  }
 
   search(username:string) {
   
     interface ApiResponse{
-      login:string;
-      public_repos:number;
+      name:string;
+      avatar_url:string;
       followers:number;
-      following:number; 
+      following:number;
+      public_repos:number;
+      repos_url:string;
+      created_at:string;
+      picture:string
+
     }
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiResponse>(this.apiRoot+username+this.token).toPromise().then(response=>{
-        this.user.login=response.login
-        this.user.public_repos=response.public_repos
+      this.http.get<ApiResponse>(environment.apiUrlUsers+username+environment.tokenUsers).toPromise().then(response=>{
+        this.user.name=response.name
         this.user.followers=response.followers
-        this.user.following=response.following
+        this.user.creationDate=response.created_at
+        this.user.picture=response.avatar_url
 
         resolve()
     },

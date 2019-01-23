@@ -1,20 +1,24 @@
-<div class="jumbotron jumbotron-fluid">
-  <h1>
-     Github-Search
-   </h1>
-   <nav>
-       <div class="link"><a routerLink="/user" routerLinkActive="active">Home</a></div>
-       <div class="link"><a routerLink="/user-form" routerLinkActive="active">Search User</a></div>
-   </nav>
-</div>
-<router-outlet></router-outlet>
+<div class="row">
+  <div class="col-md-12">
 
-<!-- <ul>
-  <li *ngFor="let track of itunes.results">
-  </li>
-</ul -->
-<!-- 
-<div *ngIf="user">
-  <div>{{user.name}}</div>
+  </div>
+</div><div class="row">
+  <div class="col-md-12">
+
+  </div>
+</div><div class="row">
+  <div class="col-md-12">
+
+  </div>
 </div>
-<h1>{{title}}</h1> -->
+<div class="jumbotron">
+  <br><br>
+  <nav>
+    <div class="link"><a routerLink="/user" routerLinkActive="active">Github User</a></div>
+    <div class="link"><a routerLink="/repository" routerLinkActive="active">Github Repo</a></div>
+  </nav>
+</div>
+
+<app-github></app-github>
+
+<!-- <router-outlet></router-outlet> -->
