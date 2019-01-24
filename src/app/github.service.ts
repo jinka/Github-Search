@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientJsonpModule} from '@angular/common/http';
 import { _appIdRandomProviderFactory } from '@angular/core/src/application_tokens';
 import { User } from './user';
+import {Profile} from './profile';
 import {environment} from '../environments/environment';
-
 @Injectable({providedIn: 'root'})
 
 export class GithubService {
@@ -70,20 +70,20 @@ export class GithubService {
       html_url:string
       name:string
       description:string
+      repo_Full_Name:string
 
     }
     let promise = new Promise((resolve, reject) => {
         this.http.get<ApiResponse>(environment.apiUrlrepos+username+environment.tokenRepos).toPromise().then(response=>{
-          for(let i=0;i<response["length"];i++){
-            // let newRepo= new Repository(0,"","","",0,"");
-            // newRepo.repoId = i+1;
-            // newRepo.repoName = response[i].name;
-            // newRepo.description = response[i].description;
-            // newRepo.language = response[i].language;
-            // newRepo.forks = response[i].forks;
-            // newRepo.url = response[i].html_url;
-            // this.repos.push(newRepo);          
-        this.user.name=response.name
+          for(let cnt=0;cnt<response["length"];cnt++){
+            let newRepo= new Profile("",0,"",0,"","");
+            newRepo.id = cnt+1;
+            newRepo.name = response[cnt].name;
+            newRepo.description = response[cnt].description;
+            newRepo.repos_Url = response[cnt].html_url;
+            
+            this.repos.push(newRepo);
+          }          
 
         resolve()
     },

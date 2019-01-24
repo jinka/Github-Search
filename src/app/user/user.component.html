@@ -1,3 +1,21 @@
+<div id="githubUser" class="container">
+  <h1>Github User Search</h1>
+</div>
+
 <p>
-  user works!
+  Enter your Github Username:
 </p>
+
+<form action="">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="username" 
+                 name="username" >
+                 <button type="submit" class="btn btn-success btn-lg" 
+                 (click)=DisplayUser()>Search</button>
+            </div>
+
+        </div>
+    </div>
+</form>

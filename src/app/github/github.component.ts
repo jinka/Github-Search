@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input,Output,EventEmitter} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {GithubService} from '../github.service';
 import {User} from '../user';
+import {Profile} from '../profile';
 
 @Component({
   selector: 'app-github',
@@ -12,7 +13,7 @@ import {User} from '../user';
 export class GithubComponent implements OnInit {
 userName=""
 user:User;
-show=false
+show=true
 repos=[]
 
 DisplayUser(){
@@ -21,11 +22,17 @@ DisplayUser(){
   this.user=this.githubService.user
 }
 
-  constructor(private githubService:GithubService) { }
+  constructor(private githubService:GithubService) { 
+    this.show=true;
+  }
 
   ngOnInit() {
     this.githubService.search("jinka");
     this.user=this.githubService.user;
+
+    this.githubService.searchRepos("jinka");
+    this.repos=this.githubService.repos
+
   }
 
 }

@@ -1,11 +1,13 @@
 export class Profile {
 
-    constructor(public name:string, 
-                public forks_count:number,
-                public repo_Url:string,
-                public description:string
-                
-                ){}
+    constructor(
+        public repoFull_Name:string,
+        public id:number,
+        public name:string, 
+        public forks_count:number,
+        public repos_Url:string,
+        public description:string
+     ){}
 }
 
 

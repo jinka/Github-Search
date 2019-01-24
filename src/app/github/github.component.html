@@ -1,7 +1,7 @@
 <section class="our-webcoderskull padding-lg">
   <div class="container">
     <div class="row heading heading-icon">
-      <h2>Angular Github</h2>
+      <h2 appBold>Angular Github</h2>
     </div>
     <ul class="row">
       <li class="col-12 col-md-6 col-lg-3">
@@ -10,7 +10,7 @@
           <h3><a href="https://github.com/jinka">{{user.name}}</a></h3>
           <div class="start">
             Date :
-            <span>{{user.creationDate}}</span>
+            <span>{{user.creationDate|github}}</span>
           </div>
           <div class="start">
             Followers :
@@ -24,16 +24,16 @@
           </div>
         </div>
       </li>
+      <li>
+        <div *ngFor="let repo of repos" class="cnt-block equal-hight">
+          <h3>{{repo.name}}</h3>
+          <p>Description:{{repo.description}}</p>
+          <p><a href="{{repo.repos_Url}}">{{repo.name}}</a></p>
+
+        </div>
+      </li>
     </ul>
+
+    
   </div>
 </section>
-<div *ngFor="let repo of repos" class="col-md-3 repoColumn">
-  <h3>Name: {{repo.name}}</h3>
-  <p>Description:{{repo.description}}</p>
-  <p>Language:{{repo.language}}</p>
-  <p>Forks:{{repo.forks}}</p>
-</div>
-<!-- <div>Github User Name:{{user.name}}</div>
-<div>Github User Followers:{{user.followers}}</div>
-<div>Github Creation Date:{{user.creationDate}}</div>
-<img class="img-thumbnail github-avatar" src="{{user.picture}}" alt=""> -->
