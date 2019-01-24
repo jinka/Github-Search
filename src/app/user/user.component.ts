@@ -13,6 +13,7 @@ export class UserComponent implements OnInit {
   userName=""
   user:User;
   show=true;
+  username=""
 
   constructor(private githubService:GithubService) {
     this.show=true;
