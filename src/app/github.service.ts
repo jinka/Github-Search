@@ -4,17 +4,17 @@ import { _appIdRandomProviderFactory } from '@angular/core/src/application_token
 import { User } from './user';
 import {Profile} from './profile';
 import {environment} from '../environments/environment';
+
 @Injectable({providedIn: 'root'})
 
 export class GithubService {
   username:"jinka"
   user:User;
+  reepo:Profile;
   repos=[];
   repositories=[];
   apiUrlUsers:string
-  // apiUrlRepos:string='https://api.github.com/users/repos';
   tokenUsers:string
-  //  tokenRepos:string="4d2dbf7b8f928da5d3ba907ee30d777e6fec8a87"
 
   constructor(private http: HttpClient) { 
     this.user = new User ("",0,"","","","","", 0,0,0,"",0,0,"","")
@@ -92,5 +92,36 @@ export class GithubService {
   })
   return promise;
   }
+// ---
+searchRepository(reponame:string) {
+  
+  interface ApiResponse{
+    name:string
+    items;
+    description:string
 
+  }
+  let promise = new Promise((resolve, reject) => {
+      this.http.get<ApiResponse>(environment.apiUrlRepository+reponame+environment.tokenRepository).toPromise().then(response=>{
+        for(let cnt=0;cnt<response.items["length"];cnt++){
+          let newRepo= new Profile("",0,"",0,"","");
+          newRepo.id = cnt+1;
+          newRepo.name = response.items[cnt].name;
+          console.log("service " +response.items[cnt].name)
+          console.log("descr " +response.items[cnt].description)
+          console.log("full name " +response.items[cnt].repo_Full_Name)
+          console.log("html Url " +response.items[cnt].html_url)
+          newRepo.description = response.items[cnt].description;
+          
+          
+          this.repos.push(newRepo);
+        }          
+
+      resolve()
+  },
+  error=>{reject(error)}
+  )
+})
+return promise;
+}
 }

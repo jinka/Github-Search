@@ -13,23 +13,24 @@ import {Profile} from '../profile';
 export class GithubComponent implements OnInit {
 userName=""
 user:User;
-show=true
 repos=[]
 
 DisplayUser(){
-  this.show=true
   this.githubService.search(this.userName)
   this.user=this.githubService.user
+
+  this.githubService.searchRepos(this.userName);
+  this.repos=this.githubService.repos
+
 }
 
   constructor(private githubService:GithubService) { 
-    this.show=true;
+    
   }
 
   ngOnInit() {
     this.githubService.search("jinka");
     this.user=this.githubService.user;
-
     this.githubService.searchRepos("jinka");
     this.repos=this.githubService.repos
 

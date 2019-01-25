@@ -1,9 +1,23 @@
-
-
-<p>
-    <!-- This is Github user's repository page. -->
-</p><p>
-    This is Github user's search page.
-</p><p>
-    This is Github user's search page.
-</p>
+<section id="section" class="our-webcoderskull padding-lg">
+    <ul class="row">
+        <li class="col-12 col-md-3 col-lg-3">
+            <label for="">Github Repoitory Search :</label>
+            <input type="text" class="form-control" [(ngModel)]="repoName" name="name" (keyup)="DisplayRepository()">
+        </li>
+        <li>
+            <div *ngFor="let repo of Repoitory" class="cnt-block equal-hight">
+                    <h1>{{repo.name}}</h1>
+                    <h1>{{repo.repoName}}</h1>
+                    <h1>{{repo}}</h1>
+                    <h1>{{repo}}</h1>
+                    <h1>{{repo}}</h1>
+                    <h1>{{repo}}</h1>
+                    <h1>{{repo}}</h1>
+                    <h1>Hellllll</h1>
+                    <h1>Hellllll</h1>
+                    <h1>Hellllll</h1>
+                    <h1>Hellllll</h1>
+            </div>
+        </li>
+    </ul>
+</section>

@@ -1,21 +1,29 @@
-<div id="githubUser" class="container">
-  <h1>Github User Search</h1>
-</div>
 
-<p>
-  Enter your Github Username:
-</p>
-
-<form action="">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <input type="text" class="form-control" [(ngModel)]="username" 
-                 name="username" >
-                 <button type="submit" class="btn btn-success btn-lg" 
-                 (click)=DisplayUser()>Search</button>
+<section id="section" class="our-webcoderskull padding-lg">
+    <ul class="row">
+        <li class="col-12 col-md-4 col-lg-3">
+            <label for="">Github User Search :</label>
+            <input type="text" class="form-control" [(ngModel)]="userName" name="name" (keyup)="DisplayUser()">
+        </li>
+        <li class="col-12 col-md-6 col-lg-6">
+            <div class="cnt-block equal-hight" style="height: 349px;">
+                <figure><img src="{{user.avatar_url}}" class="img-responsive" alt=""></figure>
+                <h3><a href="https://github.com/jinka">{{user.name}}</a></h3>
+                <div class="start">
+                    Date :
+                    <span>{{user.creationDate|github}}</span>
+                </div>
+                <div class="start">
+                    Followers :
+                    <span>{{user.followers}}</span>
+                </div>
+                <div class="start">
+                    Following:<span>{{user.following}}</span>
+                    Public Repos:<span>{{user.public_repos}}</span>
+                </div>
+                <div class="start">
+                </div>
             </div>
-
-        </div>
-    </div>
-</form>
+        </li>
+    </ul>
+</section>
